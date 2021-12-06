@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор дат</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/pages/timer.js"></script>
+</head>
+<body>
+    <div class="tabs">
+        <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+        <label for="tab-btn-1">Калькулятор дат</label>
+        <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+        <label for="tab-btn-2">Таймер</label>
+        
+        <div id="content-1">
+            <h2>Калькулятор дат</h2>
+            <form id="calcDate">
+                <label for="dateFrom">
+                    Первая дата:
+                    <input type="date" name="dateFrom" id="dateFrom">
+                </label>
+                <label for="dateTo">
+                    Вторая дата:
+                    <input type="date" name="dateTo" id="dateTo">
+                </label>
+                <button type="submit">Рассчитать промежуток</button>
+            </form>
+            <p id="output">
+            </p>
+        </div>
+        <div id="content-2">
+            <div class="timer">
+                <div class="timer__items">
+                  <div class="timer__item timer__days">00</div>
+                  <div class="timer__item timer__hours">00</div>
+                  <div class="timer__item timer__minutes">00</div>
+                  <div class="timer__item timer__seconds">00</div>
+                </div>
+                <div class="timerButtons">
+                    <button class="button1">Старт</button>
+                    <button class="button2">Стоп</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+</html>
