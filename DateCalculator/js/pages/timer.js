@@ -1,39 +1,28 @@
-import {  } from '../libs/howler.js';
+import {Howl, Howler} from 'howler';
 
-document.addEventListener('DOMContentLoaded', function () {
-	const deadline = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 01);
 
-	let timerId = null;
-
-	function declensionNum(num, words) {
-		return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+function Timer() {
+	let elem = document.getElementById('timer');
+   	elem.value = parseInt(elem.value)-1;
+   	if (i === 0) {
+		clearInterval(elem);
 	}
+}
 
-	function countdownTimer() {
-		const diff = deadline - new Date();
-		if (diff <= 0) {
-			clearInterval(timerId);
-		}
-		const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
-		const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
-		const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
-		const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
-		$days.textContent = days < 10 ? '0' + days : days;
-		$hours.textContent = hours < 10 ? '0' + hours : hours;
-		$minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
-		$seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
-		$days.dataset.title = declensionNum(days, ['день', 'дня', 'дней']);
-		$hours.dataset.title = declensionNum(hours, ['час', 'часа', 'часов']);
-		$minutes.dataset.title = declensionNum(minutes, ['минута', 'минуты', 'минут']);
-		$seconds.dataset.title = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
+function start() {
+   window.TimerId = window.setInterval(Timer, 1000);
+}
+
+function stop() {
+   window.clearInterval(window.TimerId);
+}
+
+let sound = new Howl({
+	src: ['sound.webm', 'sound.mp3', 'sound.wav'],
+	autoplay: true,
+	loop: true,
+	volume: 0.5,
+	onend: function() {
+	  console.log('Finished!');
 	}
-
-	const $days = document.querySelector('.timer__days');
-	const $hours = document.querySelector('.timer__hours');
-	const $minutes = document.querySelector('.timer__minutes');
-	const $seconds = document.querySelector('.timer__seconds');
-
-	countdownTimer();
-
-	timerId = setInterval(countdownTimer, 1000);
 });
