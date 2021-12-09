@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="./js/main.js"></script>
     <script src="./js/pages/timer.js"></script>
+    <script src="./js/libs//howler.js"></script>
 </head>
 <body>
     <div class="tabs">
@@ -34,16 +35,9 @@
         </div>
         <div id="content-2">
             <div class="timer">
-                <div class="timer__items">
-                  <div class="timer__item timer__days">00</div>
-                  <div class="timer__item timer__hours">00</div>
-                  <div class="timer__item timer__minutes">00</div>
-                  <div class="timer__item timer__seconds">00</div>
-                </div>
-                <div class="timerButtons">
-                    <button class="button1">Старт</button>
-                    <button class="button2">Стоп</button>
-                </div>
+                <input type="text" value="1" id="timer"><br>
+                <input type="submit" value="Старт" onclick="start()"><br>
+                <input type="submit" value="Стоп" onclick="stop()">
               </div>
         </div>
     </div>
